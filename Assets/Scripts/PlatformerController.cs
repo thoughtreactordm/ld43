@@ -42,6 +42,8 @@ public class PlatformerController : MonoBehaviour {
 
         if (!spawner.placing)
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        else
+            rb.velocity = Vector2.zero;
 
         if (facingRight == false && moveInput > 0) {
             Flip();

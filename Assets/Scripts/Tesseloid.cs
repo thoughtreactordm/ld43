@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tesseloid : MonoBehaviour {
 
+    public Transform pivot;
+
     public bool placed;
 
     float fallTimer;
@@ -43,7 +45,7 @@ public class Tesseloid : MonoBehaviour {
 
     void Rotate(float direction)
     {
-        transform.Rotate(0, 0, direction);
+        pivot.Rotate(0, 0, direction);
     }
 
     void Translate(float direction)
@@ -57,7 +59,7 @@ public class Tesseloid : MonoBehaviour {
     void Fall()
     {
         if (fallTimer >= fallInterval) {
-            transform.Translate(0f, -1f * fallMultiplier, 0f);
+            transform.Translate(Vector2.down * fallMultiplier);
             fallTimer = 0;
         }
     }
