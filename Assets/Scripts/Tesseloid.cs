@@ -10,10 +10,12 @@ public class Tesseloid : MonoBehaviour {
 
     float fallTimer;
     public float fallInterval;
-    public float fallMultiplier;
+    float fallMultiplier = 1f;
 
     float translateTimer;
     public float translateInterval;
+
+    public LayerMask collisionMask;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +26,7 @@ public class Tesseloid : MonoBehaviour {
 	void Update () {
 
         if (!placed) {
-            fallTimer += Time.deltaTime;
+            fallTimer += Time.deltaTime * fallMultiplier;
             translateTimer += Time.deltaTime;
 
 		    if (Input.GetKeyDown(KeyCode.Q)) {
@@ -33,10 +35,16 @@ public class Tesseloid : MonoBehaviour {
                 Rotate(-90f);
             }
 
-            if (Input.GetKeyDown(KeyCode.A)) {
+            if (Input.GetKey(KeyCode.A)) {
                 Translate(-1f);
-            } else if (Input.GetKeyDown(KeyCode.D)) {
+            } else if (Input.GetKey(KeyCode.D)) {
                 Translate(1f);
+            }
+
+            if (Input.GetKey(KeyCode.S)) {
+                fallMultiplier = 4f;
+            } else {
+                fallMultiplier = 1f;
             }
             
             Fall();
@@ -51,7 +59,9 @@ public class Tesseloid : MonoBehaviour {
     void Translate(float direction)
     {
         if (translateTimer >= translateInterval) {
-            transform.Translate(direction, 0f, 0f);
+            Vector2 dir = new Vector2(direction, 0f);
+
+            transform.Translate(dir);
             translateTimer = 0;
         }
     }
@@ -59,8 +69,9 @@ public class Tesseloid : MonoBehaviour {
     void Fall()
     {
         if (fallTimer >= fallInterval) {
-            transform.Translate(Vector2.down * fallMultiplier);
+            transform.Translate(Vector2.down);
             fallTimer = 0;
         }
     }
+
 }
