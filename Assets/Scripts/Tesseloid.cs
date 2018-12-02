@@ -17,6 +17,8 @@ public class Tesseloid : MonoBehaviour {
 
     public LayerMask collisionMask;
 
+    public TesseloidBlock[] blocks;
+
 	// Use this for initialization
 	void Start () {
         
@@ -61,8 +63,10 @@ public class Tesseloid : MonoBehaviour {
         if (translateTimer >= translateInterval) {
             Vector2 dir = new Vector2(direction, 0f);
 
-            transform.Translate(dir);
-            translateTimer = 0;
+            if (OnCollisionCheck(dir)) {
+                transform.Translate(dir);
+                translateTimer = 0;
+            }
         }
     }
 
@@ -74,4 +78,16 @@ public class Tesseloid : MonoBehaviour {
         }
     }
 
+    bool OnCollisionCheck(Vector2 dir)
+    {
+        bool collision = true;
+
+        foreach (var block in blocks) {
+            if (!block.CheckCollisions(dir)) {
+                collision = false;
+            }
+        }
+
+        return collision;
+    }
 }

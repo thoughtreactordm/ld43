@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class TesseloidSpawner : MonoBehaviour {
 
-    public GameObject[] tesseloids;
+    public GameObject[] tesseloidPrefabs;
+    List<GameObject> tesseloids;
+    public int maxTesseloids;
+
     public bool placing = false;
 
     Tesseloid activeTesseloid;
+
 
 	// Use this for initialization
 	void Start () {
@@ -32,11 +36,18 @@ public class TesseloidSpawner : MonoBehaviour {
     {
         placing = true;
 
-        int random = Random.Range(0, tesseloids.Length);
 
-        Vector3 pos = new Vector3(Mathf.Ceil(transform.position.x), 15, transform.position.z);
+        if (tesseloids.Count == 4) {
+            // Remove first index
+        }
 
-        GameObject newTesseloid = Instantiate(tesseloids[random], pos, Quaternion.identity);
+        int random = Random.Range(0, tesseloidPrefabs.Length);
+
+        Vector3 pos = new Vector3(Mathf.Ceil(transform.position.x), Mathf.Ceil(transform.position.y + 12f), transform.position.z);
+
+        GameObject newTesseloid = Instantiate(tesseloidPrefabs[random], pos, Quaternion.identity);
+
+        tesseloids.Add(newTesseloid);
 
         activeTesseloid = newTesseloid.GetComponent<Tesseloid>();
     }
