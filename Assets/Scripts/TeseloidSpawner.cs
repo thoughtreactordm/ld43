@@ -5,7 +5,7 @@ using UnityEngine;
 public class TesseloidSpawner : MonoBehaviour {
 
     public GameObject[] tesseloidPrefabs;
-    List<GameObject> tesseloids;
+    List<Tesseloid> tesseloids = new List<Tesseloid>();
     public int maxTesseloids;
 
     public bool placing = false;
@@ -36,9 +36,9 @@ public class TesseloidSpawner : MonoBehaviour {
     {
         placing = true;
 
-
-        if (tesseloids.Count == 4) {
-            // Remove first index
+        if (tesseloids.Count == maxTesseloids) {
+            tesseloids[0].Sacrifice();
+            tesseloids.RemoveAt(0);
         }
 
         int random = Random.Range(0, tesseloidPrefabs.Length);
@@ -47,7 +47,7 @@ public class TesseloidSpawner : MonoBehaviour {
 
         GameObject newTesseloid = Instantiate(tesseloidPrefabs[random], pos, Quaternion.identity);
 
-        tesseloids.Add(newTesseloid);
+        tesseloids.Add(newTesseloid.GetComponent<Tesseloid>());
 
         activeTesseloid = newTesseloid.GetComponent<Tesseloid>();
     }

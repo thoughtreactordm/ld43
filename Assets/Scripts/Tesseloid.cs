@@ -78,6 +78,11 @@ public class Tesseloid : MonoBehaviour {
         }
     }
 
+    public void Sacrifice()
+    {
+        Destroy(gameObject);
+    }
+
     bool OnCollisionCheck(Vector2 dir)
     {
         bool collision = true;

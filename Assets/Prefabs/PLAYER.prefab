@@ -137,7 +137,7 @@ MonoBehaviour:
   groundCheckRadius: 0.5
   groundMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   canPassThrough: 0
 --- !u!114 &114674452339280566
 MonoBehaviour:
@@ -150,10 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbf093bbbd490d4daf01e23c5da40b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tesseloids:
+  tesseloidPrefabs:
   - {fileID: 1413566989328514, guid: d1cb9ab06d81b4b40b3c97cdaf9a3030, type: 2}
   - {fileID: 1118497753613658, guid: 6e9956a90d3686b4dabe671130a76310, type: 2}
   - {fileID: 1930545769305338, guid: 32b9caea7a1f78c46a556d1f2f2845be, type: 2}
+  maxTesseloids: 4
   placing: 0
 --- !u!212 &212600646944623328
 SpriteRenderer:
