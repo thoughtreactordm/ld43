@@ -13,6 +13,7 @@ public class Loader : MonoBehaviour {
             Instantiate(gameManager);
         }
 
-        //GameManager.instance.Init();
+        if (GameManager.instance != null)
+            GameManager.instance.Init();
     }
 }

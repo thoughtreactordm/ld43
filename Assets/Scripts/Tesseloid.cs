@@ -50,12 +50,20 @@ public class Tesseloid : MonoBehaviour {
             }
             
             Fall();
+
+            if (transform.position.y < -7f) {
+                Sacrifice();
+            }
         }
 	}
 
     void Rotate(float direction)
     {
-        pivot.Rotate(0, 0, direction);
+        Vector2 dir = new Vector2(direction / 90, 0f);
+
+        if (OnCollisionCheck(dir)) {
+            pivot.Rotate(0, 0, direction);
+        }
     }
 
     void Translate(float direction)

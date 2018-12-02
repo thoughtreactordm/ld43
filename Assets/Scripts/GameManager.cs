@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -19,13 +20,30 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    private void Awake()
+    {
+        Init();
+    }
+
     public void Init()
     {
-       // initialize level parameters here
+        Debug.Log("Level Initialized!");
     }
 
     // Update is called once per frame
     void Update () {
 		
 	}
+
+    public void GameOver()
+    {
+        StartCoroutine("GameOverRoutine");
+    }
+
+    IEnumerator GameOverRoutine()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        yield return false;
+    }
 }

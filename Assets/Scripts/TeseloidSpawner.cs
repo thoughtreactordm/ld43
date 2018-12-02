@@ -28,6 +28,8 @@ public class TesseloidSpawner : MonoBehaviour {
         if (activeTesseloid != null && activeTesseloid.placed) {
             activeTesseloid = null;
             placing = false;
+        } else if (activeTesseloid == null) {
+            placing = false;
         }
 
 	}

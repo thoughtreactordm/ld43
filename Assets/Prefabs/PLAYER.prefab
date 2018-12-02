@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212600646944623328}
   - component: {fileID: 50347683768099422}
   - component: {fileID: 61065343810227878}
+  - component: {fileID: 114818619545403348}
   - component: {fileID: 114624357570560186}
   - component: {fileID: 114674452339280566}
   m_Layer: 0
@@ -153,9 +154,24 @@ MonoBehaviour:
   tesseloidPrefabs:
   - {fileID: 1413566989328514, guid: d1cb9ab06d81b4b40b3c97cdaf9a3030, type: 2}
   - {fileID: 1118497753613658, guid: 6e9956a90d3686b4dabe671130a76310, type: 2}
+  - {fileID: 1353742490219832, guid: f3b1f817ab941144f84633cb7b979d6a, type: 2}
+  - {fileID: 1941990787054298, guid: d53a9212f8d03464b85787dfa3f92ee0, type: 2}
+  - {fileID: 1489482435384042, guid: e6e70c8e809f041419d4ac44ca8f9b0b, type: 2}
+  - {fileID: 1744654967640070, guid: 39efd08589b2cad46a33e79593ea4331, type: 2}
   - {fileID: 1930545769305338, guid: 32b9caea7a1f78c46a556d1f2f2845be, type: 2}
   maxTesseloids: 4
   placing: 0
+--- !u!114 &114818619545403348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418335066145356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd1ea58ffcb78242a860829d8ab28b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212600646944623328
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -171,7 +187,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5ab547973490d524da3ba3fe3380ba8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,7 +208,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 39ed6d82cb7c1a64f8a82729edda9184, type: 3}
-  m_Color: {r: 0.07456994, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
