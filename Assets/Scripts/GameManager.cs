@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
 
     public int curLevel = 1;
-    public int workingCoins;
-    public int totalCoins;
+
+    public FaderController fader;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
 
         if (instance == null) {
             instance = this;
@@ -22,16 +22,13 @@ public class GameManager : MonoBehaviour {
 
         DontDestroyOnLoad(this.gameObject);
 
-    }
-
-    private void Awake()
-    {
-        Init();
+        //Init();
     }
 
     public void Init()
     {
-        workingCoins = 0;
+        StartCoroutine("FindFader");
+
         Debug.Log("Level Initialized!");
     }
 
@@ -49,8 +46,9 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("Victory!");
         curLevel++;
-        totalCoins += workingCoins;
         yield return new WaitForSeconds(2f);
+        fader.FadeIntoBlack();
+        yield return new WaitForSeconds(1f);
 
         SceneManager.LoadScene(curLevel - 1);
 
@@ -64,8 +62,21 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator GameOverRoutine()
     {
+        fader.FadeIntoBlack();
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         yield return false;
+    }
+
+    IEnumerator FindFader()
+    {
+        yield return new WaitForSeconds(1f);
+        fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<FaderController>();
+
+        if (fader != null) {
+            yield return false;
+        }
+
+        yield return true;
     }
 }

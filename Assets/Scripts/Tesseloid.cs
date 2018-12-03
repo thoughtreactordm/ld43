@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Tesseloid : MonoBehaviour {
 
@@ -14,6 +15,9 @@ public class Tesseloid : MonoBehaviour {
 
     float translateTimer;
     public float translateInterval;
+
+    float rotateTimer;
+    public float rotateInterval;
 
     public LayerMask collisionMask;
 
@@ -32,6 +36,7 @@ public class Tesseloid : MonoBehaviour {
         if (!placed) {
             fallTimer += Time.deltaTime * fallMultiplier;
             translateTimer += Time.deltaTime;
+            rotateTimer += Time.deltaTime;
 
 		    if (Input.GetKeyDown(KeyCode.Q)) {
                 Rotate(90f);
@@ -62,10 +67,14 @@ public class Tesseloid : MonoBehaviour {
 
     void Rotate(float direction)
     {
-        Vector2 dir = new Vector2(direction / 90, 0f);
+        if (rotateTimer >= rotateInterval) {
+            Vector2 dir = new Vector2(direction / 90, 0f);
 
-        if (OnCollisionCheck(dir)) {
-            pivot.Rotate(0, 0, direction);
+            if (OnCollisionCheck(dir)) {
+                pivot.Rotate(0, 0, direction);
+
+                rotateTimer = 0f;
+            }
         }
     }
 
@@ -75,8 +84,10 @@ public class Tesseloid : MonoBehaviour {
             Vector2 dir = new Vector2(direction, 0f);
 
             if (OnCollisionCheck(dir)) {
-                transform.Translate(dir);
-                translateTimer = 0;
+                //transform.Translate(dir);
+
+                transform.DOMoveX(transform.position.x + dir.x, 0.35f, true);
+                translateTimer = 0f;
             }
         }
     }
@@ -85,6 +96,7 @@ public class Tesseloid : MonoBehaviour {
     {
         if (fallTimer >= fallInterval) {
             transform.Translate(Vector2.down);
+
             fallTimer = 0;
         }
     }

@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Spikes
   - DeathLevel
+  - Fader
   layers:
   - Default
   - TransparentFX

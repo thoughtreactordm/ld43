@@ -541,6 +541,7 @@ MonoBehaviour:
   placed: 0
   fallInterval: 1
   translateInterval: 0.5
+  rotateInterval: 0.35
   collisionMask:
     serializedVersion: 2
     m_Bits: 0

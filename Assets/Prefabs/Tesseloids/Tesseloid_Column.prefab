@@ -525,9 +525,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 4082982787796700}
   placed: 0
-  index: 0
   fallInterval: 1
   translateInterval: 0.5
+  rotateInterval: 0.35
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
