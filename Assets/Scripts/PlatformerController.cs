@@ -12,12 +12,12 @@ public class PlatformerController : MonoBehaviour {
     public int maxExtraJumps;
     public float jumpTime;
     float jumpTimeCounter;
-    private bool isJumping;
+    public bool isJumping;
 
     private float moveInput;
     private bool facingRight = true;
 
-    private bool isGrounded;
+    public bool isGrounded;
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundMask;

@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour {
         fader.FadeIntoBlack();
         yield return new WaitForSeconds(1f);
 
-        SceneManager.LoadScene(curLevel - 1);
+        SceneManager.LoadScene(curLevel);
 
         yield return false;
     }
