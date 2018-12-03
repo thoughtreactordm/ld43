@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class TesseloidSpawner : MonoBehaviour {
 
+    public static TesseloidSpawner instance;
+
     public GameObject[] tesseloidPrefabs;
-    List<Tesseloid> tesseloids = new List<Tesseloid>();
+    public List<Tesseloid> tesseloids = new List<Tesseloid>();
     public int maxTesseloids;
 
     public bool placing = false;
@@ -15,7 +17,7 @@ public class TesseloidSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        instance = this;
 	}
 	
 	// Update is called once per frame
@@ -30,7 +32,7 @@ public class TesseloidSpawner : MonoBehaviour {
             placing = false;
         } else if (activeTesseloid == null) {
             placing = false;
-        }
+        }        
 
 	}
 
@@ -49,8 +51,8 @@ public class TesseloidSpawner : MonoBehaviour {
 
         GameObject newTesseloid = Instantiate(tesseloidPrefabs[random], pos, Quaternion.identity);
 
-        tesseloids.Add(newTesseloid.GetComponent<Tesseloid>());
-
         activeTesseloid = newTesseloid.GetComponent<Tesseloid>();
+
+        tesseloids.Add(activeTesseloid);
     }
 }

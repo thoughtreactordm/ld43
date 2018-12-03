@@ -19,10 +19,12 @@ public class Tesseloid : MonoBehaviour {
 
     public TesseloidBlock[] blocks;
 
+    Transform deathLevel;
+
 	// Use this for initialization
 	void Start () {
-        
-	}
+        deathLevel = GameObject.FindGameObjectWithTag("DeathLevel").GetComponent<Transform>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -51,8 +53,9 @@ public class Tesseloid : MonoBehaviour {
             
             Fall();
 
-            if (transform.position.y < -7f) {
+            if (transform.position.y < deathLevel.position.y) {
                 Sacrifice();
+                TesseloidSpawner.instance.tesseloids.Remove(this);
             }
         }
 	}
@@ -89,6 +92,11 @@ public class Tesseloid : MonoBehaviour {
     public void Sacrifice()
     {
         Destroy(gameObject);
+    }
+
+    public void Remove()
+    {
+        TesseloidSpawner.instance.tesseloids.Remove(this);
     }
 
     bool OnCollisionCheck(Vector2 dir)

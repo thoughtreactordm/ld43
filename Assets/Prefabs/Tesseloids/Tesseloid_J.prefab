@@ -511,7 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 9728
 --- !u!114 &114264695584171718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 9728
 --- !u!114 &114681891847330428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 9728
 --- !u!114 &114906990278506980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -576,4 +576,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 9728

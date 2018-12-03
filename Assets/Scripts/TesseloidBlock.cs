@@ -34,6 +34,9 @@ public class TesseloidBlock : MonoBehaviour {
                 return;
             } else if (hit.collider.tag == "Ground") {            
                 tesseloid.placed = true;
+            } else if (hit.collider.tag == "Spikes") {
+                tesseloid.Sacrifice();
+                tesseloid.Remove();           
             }
 
         }
@@ -41,9 +44,9 @@ public class TesseloidBlock : MonoBehaviour {
     
     public bool CheckCollisions(Vector2 dir)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 2f, collisionMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 1f, collisionMask);
 
-        Debug.DrawRay(transform.position, dir, Color.red, 2f);
+        Debug.DrawRay(transform.position, dir, Color.red, 1f);
 
         if (hit.collider != null) {
             //Debug.Log("Can't move!");

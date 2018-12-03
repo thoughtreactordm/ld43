@@ -511,7 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 9728
 --- !u!114 &114389131788182580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -525,6 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 4082982787796700}
   placed: 0
+  index: 0
   fallInterval: 1
   translateInterval: 0.5
   collisionMask:
@@ -548,7 +549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 9728
 --- !u!114 &114706070901967918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -562,7 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 9728
 --- !u!114 &114870146941444562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -576,4 +577,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 9728
