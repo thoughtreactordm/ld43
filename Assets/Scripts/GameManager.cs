@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("Victory!");
         curLevel++;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         fader.FadeIntoBlack();
         yield return new WaitForSeconds(1f);
 
